@@ -1,115 +1,109 @@
+[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+
 # TIPS Prompt Manager
 
-## 中文
+An offline Windows prompt library for organizing, searching, editing, and copying prompts with local Tkinter and SQLite storage.
 
-TIPS Prompt Manager 是一个离线提示词工程管理器，用于在本机保存、分类、搜索、编辑和复制提示词。它使用 Python/Tkinter 构建界面，使用 SQLite 保存数据，不需要浏览器、账号、服务端或网络连接。
+[![Last commit](https://img.shields.io/github/last-commit/NextWeb4/tips-prompt-manager?style=flat-square)](https://github.com/NextWeb4/tips-prompt-manager/commits/main)
+[![Repository size](https://img.shields.io/github/repo-size/NextWeb4/tips-prompt-manager?style=flat-square)](https://github.com/NextWeb4/tips-prompt-manager)
+[![GitHub stars](https://img.shields.io/github/stars/NextWeb4/tips-prompt-manager?style=flat-square)](https://github.com/NextWeb4/tips-prompt-manager)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)
+[![MIT License](https://img.shields.io/github/license/NextWeb4/tips-prompt-manager?style=flat-square)](LICENSE)
 
-### 功能特点
+## Features
 
-- 新建、编辑、删除提示词。
-- 自定义分类，支持新增、重命名和删除分类。
-- 按分类筛选提示词。
-- 搜索标题和内容，并在列表和正文中高亮匹配结果。
-- 一键复制提示词内容到剪贴板。
-- 首次运行设置本地密码；同一次开机通过后不重复验证。
-- 中英文界面切换，语言设置保存在本机。
+- Creates, edits, and deletes prompts stored in a local SQLite database.
+- Adds, renames, and deletes custom categories, with category-based filtering.
+- Searches prompt titles and bodies and highlights matching text.
+- Copies the current prompt body to the clipboard.
+- Protects application entry with a local password and skips repeated verification during the same Windows boot session.
+- Switches between Chinese and English and saves the preference locally.
+- Runs without a browser, user account, server, or network connection.
 
-### 安装方法
+## Install a Release
 
-下载 Release 中的 `tips-prompt-manager-v1.0.0-windows-x64.exe` 后直接运行，或下载 `tips-prompt-manager-v1.0.0-windows-x64.zip` 解压后运行其中的 EXE。
+Download `tips-prompt-manager-v1.0.0-windows-x64.exe` and run it directly, or download `tips-prompt-manager-v1.0.0-windows-x64.zip`, extract it, and run the EXE inside.
 
-EXE 未进行数字签名。请使用 Release 中的 `SHA256SUMS.txt` 校验文件完整性。
+The EXE is not digitally signed. Verify it against `SHA256SUMS.txt` from the same release before running it.
 
-### 使用方法
+## Run From Source
 
-1. 首次启动时设置本地密码。
-2. 使用“新增分类”整理提示词类型。
-3. 点击“新建”，填写标题、分类和提示词内容。
-4. 点击“保存”写入本地 SQLite 数据库。
-5. 使用搜索框查找标题或正文内容。
-6. 点击“复制内容”将当前提示词复制到剪贴板。
-
-本地数据文件会在程序同目录自动创建：
-
-- `config.json`：密码盐值和密码哈希，不保存明文密码。
-- `.auth_session.json`：本次开机验证状态。
-- `settings.json`：语言偏好。
-- `prompts.db`：SQLite 提示词数据库。
-
-这些文件是个人数据，已被 `.gitignore` 排除，不应提交到仓库。
-
-### 打包说明
+The project declares Python 3.10 or newer and uses only the Python standard library at runtime. From the repository root, run:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/build.ps1
+python PromptManager.pyw
 ```
 
-构建脚本会先运行测试和 `compileall`，再使用 PyInstaller 生成 Windows 单文件 EXE、便携 ZIP 和 SHA256 校验文件。
+For a windowless launch, use `pythonw.exe PromptManager.pyw` or double-click `启动提示词管理器.bat`. The batch launcher uses the repository directory rather than a hard-coded machine path.
 
-### 作者信息
-
-- Author: HaoXiang Huang
-- Email: didadida1688@gmail.com
-- Homepage: https://nextweb4.github.io/
-- GitHub: https://github.com/NextWeb4
-
-### License
-
-MIT License
-
-## English
-
-TIPS Prompt Manager is an offline prompt engineering manager for storing, categorizing, searching, editing, and copying prompts locally. It uses Python/Tkinter for the interface and SQLite for local storage. No browser, account, server, or network connection is required.
-
-### Features
-
-- Create, edit, and delete prompts.
-- Add, rename, and delete custom categories.
-- Filter prompts by category.
-- Search titles and content with highlighted matches.
-- Copy the current prompt content to the clipboard.
-- Set a local password on first launch; the app skips repeat verification during the same boot session.
-- Switch between Chinese and English; the language preference is stored locally.
-
-### Installation
-
-Download `tips-prompt-manager-v1.0.0-windows-x64.exe` from the Release page and run it directly, or download `tips-prompt-manager-v1.0.0-windows-x64.zip`, extract it, and run the EXE inside.
-
-The EXE is not digitally signed. Verify file integrity with `SHA256SUMS.txt` from the Release page.
-
-### Usage
+## Use the App
 
 1. Set a local password on first launch.
-2. Use "Add category" to organize prompt types.
-3. Click "New", then enter a title, category, and prompt content.
-4. Click "Save" to write the prompt to the local SQLite database.
-5. Use the search box to find title or content matches.
-6. Click "Copy" to copy the current prompt to the clipboard.
+2. Add categories for the kinds of prompts you maintain.
+3. Choose **New**, then enter a title, category, and prompt body.
+4. Choose **Save** to write the prompt to local SQLite storage.
+5. Filter by category or search the title and body.
+6. Choose **Copy** to put the current prompt body on the clipboard.
 
-Local data files are created next to the program:
+Keyboard shortcuts implemented by the application include `Ctrl+N` for a new prompt, `Ctrl+S` to save, `Ctrl+F` to focus search, and `Delete` to remove the selected prompt.
 
-- `config.json`: password salt and password hash, never plaintext password.
-- `.auth_session.json`: current boot-session verification state.
-- `settings.json`: language preference.
-- `prompts.db`: SQLite prompt database.
+## Local Data and Security
 
-These files are personal data and are excluded by `.gitignore`.
+The application creates these personal files next to the program:
 
-### Packaging
+| File | Purpose |
+| --- | --- |
+| `prompts.db` | Prompt and category data in SQLite |
+| `config.json` | Password salt and password hash; no plaintext password |
+| `.auth_session.json` | Authentication state for the current boot session |
+| `settings.json` | Interface-language preference |
+
+These paths are excluded by `.gitignore` and must not be committed or packaged. The password protects the application entry point; it does **not** encrypt `prompts.db`. Anyone with file access may be able to inspect the database, so protect the storage directory and do not use production prompt data as test fixtures or screenshots.
+
+The application is intentionally offline: it has no cloud account, synchronization, telemetry, or automatic-update behavior.
+
+## Project Structure
+
+| Path | Responsibility |
+| --- | --- |
+| `PromptManager.pyw` | Source launcher |
+| `src/tips_prompt_manager/app.py` | Tkinter interface and user interaction |
+| `src/tips_prompt_manager/auth.py` | Password hashing and boot-session authentication |
+| `src/tips_prompt_manager/storage.py` | SQLite schema and prompt/category operations |
+| `src/tips_prompt_manager/i18n.py` | Chinese and English interface strings |
+| `src/tips_prompt_manager/paths.py` | Local data paths |
+| `tests/` | Authentication, localization, storage, and GUI smoke checks |
+| `scripts/build.ps1` | Test, compile, PyInstaller, ZIP, and checksum pipeline |
+
+## Test
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m unittest discover -s tests -v
+```
+
+The GUI/package smoke script is:
+
+```powershell
+.\tests\run_ui_smoke.ps1
+```
+
+Use `-SkipLaunch` in a CI or non-interactive desktop session.
+
+## Build
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 ```
 
-The build script runs tests and `compileall`, then uses PyInstaller to create a Windows single-file EXE, portable ZIP, and SHA256 checksums.
+The build script runs tests and `compileall`, then uses PyInstaller 6.20.0 to create a Windows x64 single-file EXE, a portable ZIP containing the documentation and notices, and SHA-256 checksums. The repository has no MSI configuration.
 
-### Author
+## Author
 
-- Author: HaoXiang Huang
-- Email: didadida1688@gmail.com
-- Homepage: https://nextweb4.github.io/
-- GitHub: https://github.com/NextWeb4
+- HaoXiang Huang
+- [didadida1688@gmail.com](mailto:didadida1688@gmail.com)
+- [Project homepage](https://nextweb4.github.io/)
 
-### License
+## License
 
-MIT License
+Released under the [MIT License](LICENSE). Runtime modules come from the Python standard library; PyInstaller is a build-only dependency. See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
