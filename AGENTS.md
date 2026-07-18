@@ -21,6 +21,8 @@
 - No MSI build command or installer configuration was found; do not claim MSI output.
 
 ## 5. Code style
+- Keep the centered Shields language selector in all three root READMEs with the exact visible labels `English`, `简体中文`, and `日本語`, linked in that order to `README.md`, `README.zh-CN.md`, and `README.ja.md`; do not replace the SVG labels with browser-translatable text.
+- Keep the three README versions aligned in section order, facts, commands, paths, links, images, numbers, and code fences; translate headings and prose naturally while preserving identifiers.
 - Use UTF-8, four-space Python indentation, type hints, and small functions consistent with existing modules.
 - Keep Chinese and English strings centralized in `src/tips_prompt_manager/i18n.py`.
 - Runtime code currently uses only the standard library; audit compatibility, license, size, maintenance, and offline impact before adding a dependency.
@@ -44,6 +46,7 @@
 - GUI changes receive an interactive smoke check where a desktop is available, or an explicit limitation report otherwise.
 
 ## 9. Review criteria
+- Verify the language selector renders through GitHub without browser-translatable text and all three README versions keep the same facts, commands, links, and images.
 - Review the offline boundary, ignored runtime data, password hash/session expiry, SQLite migration/CRUD behavior, search highlighting, and clipboard handling.
 - Confirm UI strings remain complete in both supported languages.
 - Inspect release metadata, unsigned status, ZIP contents, and SHA-256 output after build changes.

@@ -1,4 +1,8 @@
-[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+<p align="center">
+  <a href="README.md"><img src="https://img.shields.io/badge/English-0969da?style=flat-square" alt="English"></a>
+  <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-c8102e?style=flat-square" alt="简体中文"></a>
+  <a href="README.ja.md"><img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-8250df?style=flat-square" alt="日本語"></a>
+</p>
 
 # TIPS Prompt Manager
 
@@ -19,6 +23,14 @@ An offline Windows prompt library for organizing, searching, editing, and copyin
 - Protects application entry with a local password and skips repeated verification during the same Windows boot session.
 - Switches between Chinese and English and saves the preference locally.
 - Runs without a browser, user account, server, or network connection.
+
+## Requirements and Compatibility
+
+- **Operating system:** the Tkinter desktop UI, `.pyw`/batch launchers, PowerShell smoke test, and PyInstaller release target Windows.
+- **Python:** `pyproject.toml` requires Python 3.10 or newer. `requirements.txt` confirms that runtime code uses only the Python standard library.
+- **Write access:** the program directory must permit creation and update of `prompts.db`, `config.json`, `.auth_session.json`, and `settings.json`.
+- **Build tooling:** PyInstaller 6.20.0 is pinned in `requirements-dev.txt` and is needed only to build release artifacts.
+- **Package formats:** the repository produces a single-file EXE and portable ZIP; it has no MSI configuration or MSI build command.
 
 ## Install a Release
 
@@ -97,6 +109,19 @@ powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 ```
 
 The build script runs tests and `compileall`, then uses PyInstaller 6.20.0 to create a Windows x64 single-file EXE, a portable ZIP containing the documentation and notices, and SHA-256 checksums. The repository has no MSI configuration.
+
+## Project Status and Limitations
+
+- This is an active, public Windows application with a documented v1.0.0 release process.
+- The application interface supports Chinese and English; the three README languages do not imply a Japanese UI.
+- Password verification controls entry through the application but does not encrypt prompt content in SQLite.
+- The documented design has no cloud synchronization, telemetry, or automatic updates, and the audited tree contains no automatic-backup command.
+- Published executables are unsigned. Checksums detect changed files but do not establish a trusted publisher.
+- Tkinter layout, clipboard behavior, and packaged startup require an interactive Windows desktop for complete verification.
+
+## Contributing
+
+Keep UI behavior in `src/tips_prompt_manager/app.py`, authentication/session logic in `auth.py`, SQLite operations in `storage.py`, localized strings in `i18n.py`, and file-location decisions in `paths.py`. Use synthetic prompts in tests and screenshots, update Chinese and English UI strings together, and run the unit and GUI/package smoke checks relevant to the change. Runtime dependencies require an explicit compatibility, license, size, maintenance, and offline-impact review; no lint or formatter command is currently declared.
 
 ## Author
 

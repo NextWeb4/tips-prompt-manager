@@ -1,4 +1,8 @@
-[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+<p align="center">
+  <a href="README.md"><img src="https://img.shields.io/badge/English-0969da?style=flat-square" alt="English"></a>
+  <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-c8102e?style=flat-square" alt="简体中文"></a>
+  <a href="README.ja.md"><img src="https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-8250df?style=flat-square" alt="日本語"></a>
+</p>
 
 # TIPS 提示词管理器
 
@@ -19,6 +23,14 @@
 - 使用本地密码保护应用入口，同一次 Windows 开机期间通过后不重复验证。
 - 切换中英文界面，并把语言偏好保存在本机。
 - 无需浏览器、账号、服务端或网络连接。
+
+## 环境要求与兼容性
+
+- **操作系统：**Tkinter 桌面 UI、`.pyw`/批处理启动器、PowerShell 冒烟测试和 PyInstaller 发布包均面向 Windows。
+- **Python：**`pyproject.toml` 要求 Python 3.10 或更高版本；`requirements.txt` 确认运行时代码仅使用 Python 标准库。
+- **写入权限：**程序目录必须允许创建和更新 `prompts.db`、`config.json`、`.auth_session.json` 与 `settings.json`。
+- **构建工具：**`requirements-dev.txt` 固定 PyInstaller 6.20.0，它只用于生成发布产物。
+- **包格式：**仓库生成单文件 EXE 和 portable ZIP；当前没有 MSI 配置或 MSI 构建命令。
 
 ## 安装发布包
 
@@ -97,6 +109,19 @@ powershell -ExecutionPolicy Bypass -File scripts/build.ps1
 ```
 
 构建脚本会运行测试和 `compileall`，然后使用 PyInstaller 6.20.0 生成 Windows x64 单文件 EXE、包含文档和声明的便携 ZIP，以及 SHA-256 校验值。仓库当前没有 MSI 配置。
+
+## 项目状态与限制
+
+- 这是一个活跃的公开 Windows 应用，已记录 v1.0.0 发布流程。
+- 应用界面目前支持中文和英文；README 提供三种语言并不表示应用已有日文 UI。
+- 密码验证只控制从应用入口访问，不会加密 SQLite 中的提示词内容。
+- 已记录的设计不包含云同步、遥测或自动更新，审计后的目录树中也没有自动备份命令。
+- 公开的可执行文件未签名；校验和能发现文件变化，但不能建立受信任发布者身份。
+- Tkinter 布局、剪贴板行为和打包后启动需要在交互式 Windows 桌面中才能完整验证。
+
+## 参与贡献
+
+请将 UI 行为保留在 `src/tips_prompt_manager/app.py`，认证/会话逻辑保留在 `auth.py`，SQLite 操作保留在 `storage.py`，本地化文案保留在 `i18n.py`，文件位置决策保留在 `paths.py`。测试和截图只使用合成提示词，中英文 UI 文案必须同步更新，并运行与改动相关的单元测试和 GUI/发布包冒烟检查。新增运行时依赖前必须明确审计兼容性、许可证、体积、维护状态和离线影响；项目当前没有 lint 或 format 命令。
 
 ## 作者
 
