@@ -83,6 +83,7 @@ python PromptManager.pyw
 | `src/tips_prompt_manager/auth.py` | パスワードハッシュと起動セッション認証 |
 | `src/tips_prompt_manager/storage.py` | SQLite スキーマとプロンプト/カテゴリ操作 |
 | `src/tips_prompt_manager/i18n.py` | 中国語/英語 UI 文言 |
+| `src/tips_prompt_manager/meta.py` | アプリケーションのメタデータ定数 |
 | `src/tips_prompt_manager/paths.py` | ローカルデータパス |
 | `tests/` | 認証、ローカライズ、ストレージ、GUI スモークテスト |
 | `scripts/build.ps1` | テスト、コンパイル、PyInstaller、ZIP、チェックサム |

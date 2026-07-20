@@ -83,6 +83,7 @@ The application is intentionally offline: it has no cloud account, synchronizati
 | `src/tips_prompt_manager/auth.py` | Password hashing and boot-session authentication |
 | `src/tips_prompt_manager/storage.py` | SQLite schema and prompt/category operations |
 | `src/tips_prompt_manager/i18n.py` | Chinese and English interface strings |
+| `src/tips_prompt_manager/meta.py` | Application metadata constants |
 | `src/tips_prompt_manager/paths.py` | Local data paths |
 | `tests/` | Authentication, localization, storage, and GUI smoke checks |
 | `scripts/build.ps1` | Test, compile, PyInstaller, ZIP, and checksum pipeline |

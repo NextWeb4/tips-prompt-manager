@@ -2,7 +2,7 @@
 
 ## 1. Project structure
 - `PromptManager.pyw` and `启动提示词管理器.bat` are launchers; maintainable application code is under `src/tips_prompt_manager/`.
-- Keep Tkinter UI in `app.py`, password/session logic in `auth.py`, SQLite operations in `storage.py`, localized strings in `i18n.py`, and data-path decisions in `paths.py`.
+- Keep Tkinter UI in `app.py`, password/session logic in `auth.py`, SQLite operations in `storage.py`, localized strings in `i18n.py`, application metadata in `meta.py`, and data-path decisions in `paths.py`.
 - Tests live in `tests/`; `scripts/build.ps1` owns release packaging. Personal runtime files are not source files.
 
 ## 2. Run commands

@@ -83,6 +83,7 @@ python PromptManager.pyw
 | `src/tips_prompt_manager/auth.py` | 密码哈希与开机周期认证 |
 | `src/tips_prompt_manager/storage.py` | SQLite schema 和提示词/分类操作 |
 | `src/tips_prompt_manager/i18n.py` | 中英文界面文案 |
+| `src/tips_prompt_manager/meta.py` | 应用元数据常量 |
 | `src/tips_prompt_manager/paths.py` | 本地数据路径 |
 | `tests/` | 认证、本地化、存储和 GUI 冒烟检查 |
 | `scripts/build.ps1` | 测试、编译、PyInstaller、ZIP 与校验流水线 |
