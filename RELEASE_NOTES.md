@@ -1,3 +1,6 @@
+
+
+
 # Initial Clean Release v1.0.0
 
 ## 中文
@@ -13,7 +16,7 @@
 程序支持中英文界面、本地密码验证、分类管理、搜索高亮和一键复制。EXE 未进行数字签名；作者、版权、产品名和版本元数据已写入。请校验 SHA256 后使用。
 
 作者：HaoXiang Huang
-邮箱：didadida1688@gmail.com
+邮箱：Rays688888@Gmail.com
 主页：https://nextweb4.github.io/
 GitHub：https://github.com/NextWeb4
 
@@ -30,6 +33,6 @@ This is the first clean release of TIPS Prompt Manager. The app has been organiz
 The app supports Chinese/English UI, local password verification, category management, highlighted search, and one-click copy. The EXE is not digitally signed; author, copyright, product, and version metadata are present. Verify SHA256 before use.
 
 Author: HaoXiang Huang
-Email: didadida1688@gmail.com
+Email: Rays688888@Gmail.com
 Homepage: https://nextweb4.github.io/
 GitHub: https://github.com/NextWeb4

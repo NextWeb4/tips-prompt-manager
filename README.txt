@@ -1,3 +1,6 @@
+
+
+
 TIPS Prompt Manager / TIPS 提示词管理器
 
 中文说明请见 README.md。
@@ -14,6 +17,6 @@ Quick start:
 3. Prompts, categories, language preference, and authentication state are stored locally.
 
 Author: HaoXiang Huang
-Email: didadida1688@gmail.com
+Email: Rays688888@Gmail.com
 Homepage: https://nextweb4.github.io/
 GitHub: https://github.com/NextWeb4
